@@ -1,0 +1,87 @@
+import random
+
+rock = """
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+"""
+
+paper = """
+     _______
+---'    ____)____
+           ______)
+          _______)
+         _______)
+---.__________)
+"""
+
+scissors = """
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+"""
+
+print("Welcome to Rock, Paper, Scissors!")
+
+humannumber = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for scissors. "))
+
+ainumber = random.randint(0,2)
+
+if humannumber == 0:
+    print(rock)
+elif humannumber == 1:
+    print(paper)
+elif humannumber == 2:
+    print(scissors)
+else:
+    print("You typed an invalid number! You Lose!")
+
+print("The Computer Chose:")
+
+if ainumber == 0:
+    print(rock)
+
+elif ainumber == 1:
+    print(paper)
+
+elif ainumber == 2:
+    print(scissors)
+
+
+if humannumber == 0 and ainumber == 0:
+    result = "Draw"
+
+elif humannumber == 1 and ainumber == 1:
+    result = "Draw"
+
+elif humannumber == 2 and ainumber == 2:
+    result = "Draw"
+
+elif humannumber == 0 and ainumber == 1:
+    result = "Lose"
+
+elif humannumber == 0 and ainumber == 2:
+    result = "Win"
+
+elif humannumber == 1 and ainumber == 0:
+    result = "Win"
+
+elif humannumber == 1 and ainumber == 2:
+    result = "Lose"
+
+elif humannumber == 2 and ainumber == 0:
+    result = "Lose"
+
+elif humannumber == 2 and ainumber == 1:
+    result = "Win"
+
+else:
+    result = "Fail"
+
+print(f"You {result}!")
