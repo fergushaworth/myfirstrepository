@@ -1,0 +1,101 @@
+import random
+
+word_list = ["cat", "dog", "shark", "camel", "penguin", "tardigrade", "centipede"]
+display = []
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
+chosen_word = random.choice(word_list)
+
+lives = 6
+
+print(chosen_word)
+
+print("Welcome to Hangman - Animal edition")
+
+for _ in range(len(chosen_word)):
+    display += "_"
+
+
+print(display)
+
+end_of_game = False
+
+while not end_of_game:
+
+    letter_guess = input("What letter do you pick? ")
+
+    letter_guess_low = letter_guess.lower()
+
+
+    for position in range(len(chosen_word)):
+        letter = chosen_word[position]
+        if letter == letter_guess_low:
+            display[position] = letter
+
+    if letter_guess_low not in chosen_word:
+        lives -= 1
+        if lives == 0:
+            end_of_game = True
+            print("You Die!")
+            
+    print(display)
+    if "_" not in display:
+        end_of_game = True
+        print("You Win!")
+
+    print(stages[lives])
