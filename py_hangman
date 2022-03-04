@@ -81,6 +81,9 @@ while not end_of_game:
 
     letter_guess_low = letter_guess.lower()
 
+    if letter_guess_low in display:
+        print(f"You have already guessed {letter_guess_low}")
+
 
     for position in range(len(chosen_word)):
         letter = chosen_word[position]
@@ -88,6 +91,7 @@ while not end_of_game:
             display[position] = letter
 
     if letter_guess_low not in chosen_word:
+        print(f"You guessed {letter_guess_low}, that's not in the word :o")
         lives -= 1
         if lives == 0:
             end_of_game = True
@@ -99,3 +103,4 @@ while not end_of_game:
         print("You Win!")
 
     print(stages[lives])
+    
