@@ -1,0 +1,16 @@
+def greet():
+    print("Hi")
+    print("Hello")
+    print("How Are You?")
+
+
+greet()
+
+name = input("What is your name? ")
+location = input("Where do you live? ")
+
+def greet_with(name, location):
+    print(f"Hello {name}")
+    print(f"Its a nice day in {location}")
+    
+greet_with(name, location)
